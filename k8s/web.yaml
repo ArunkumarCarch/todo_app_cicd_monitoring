@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: arunkumarcarch/todo_web_image_mon:latest
+          image: arunkumarcarch/todo_web_image_mon:0eed8260b1703b25d752f55e34731013b9cfe057
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
