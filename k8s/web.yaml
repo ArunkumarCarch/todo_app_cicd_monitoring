@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: todo-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: arunkumarcarch/todo_web_image:d6d9738327691bc9c5412b2d7e2a19243e548aca
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+            # - containerPort: 3000
+          # env:
+          #   - name: REACT_APP_API_URL
+          #     value: "http://api.todo-lab.svc.cluster.local:8000"

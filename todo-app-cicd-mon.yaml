@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app-cicd-mon
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ArunkumarCarch/todo_app_cicd_monitoring.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

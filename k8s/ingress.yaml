@@ -1,0 +1,56 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-ingress
+  namespace: todo-lab
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: todo.local   # 👈 single hostname
+    http:
+      paths:
+      - path: /    # root URL (/) → frontend
+        pathType: Prefix
+        backend:
+          service:
+            name: web-service
+            port:
+              number: 80
+      - path: /api   # /api URL → backend
+        pathType: Prefix
+        backend:
+          service:
+            name: api
+            port:
+              number: 8000
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: todo-ingress
+#   namespace: todo-lab
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /$2
+#     nginx.ingress.kubernetes.io/use-regex: "true"
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#     - host: todo.local
+#       http:
+#         paths:
+#           - path: /api(/|$)(.*)
+#             pathType: ImplementationSpecific
+#             backend:
+#               service:
+#                 name: api
+#                 port:
+#                   number: 8000
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: ui
+#                 port:
+#                   number: 3000
+
+
