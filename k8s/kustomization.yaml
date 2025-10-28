@@ -16,4 +16,5 @@ resources:
   - web-service.yaml
   - secret.yaml
   - ingress.yaml
+  - kind-config.yaml
 
