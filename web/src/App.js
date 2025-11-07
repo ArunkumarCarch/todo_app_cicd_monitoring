@@ -40,7 +40,6 @@ function App() {
       <p>one</p>
       <p>two</p>
       <p>three</p>
-      <p>4</p>
       <p>live demo</p>
       <input
         type="text"
