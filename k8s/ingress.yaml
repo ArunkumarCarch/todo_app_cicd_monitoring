@@ -1,3 +1,35 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: todo-ingress
+#   namespace: todo-lab
+#   annotations:
+#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+# spec:
+#   ingressClassName: nginx
+#   tls:
+#   - hosts:
+#     - todo.local
+#     secretName: todo-tls
+#   rules:
+#   - host: todo.local
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: web-service         # <-- change to your service name that serves the UI
+#             port:
+#               number: 80       # <-- change if your service uses a different port
+#       - path: /api
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: api
+#             port:
+#               number: 8000
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

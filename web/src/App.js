@@ -40,7 +40,6 @@ function App() {
       <p>one</p>
       <p>two</p>
       <p>three</p>
-      <p>live demo</p>
       <input
         type="text"
         placeholder="Enter a task"
